@@ -9,36 +9,6 @@ import { createNote, deleteNote, getNotes, updateNote } from '@/lib/noteApiClien
 import type { Note } from '@/lib/notes'
 import { supabase } from '@/lib/supabaseClient'
 
-const tableFields = ['id', 'title', 'content', 'created_at'] as const
-
-const requestedFeatures = [
-  {
-    index: '01',
-    title: 'Criar nota',
-    description: 'Formulário com título e conteúdo para registrar rapidamente o resumo da aula.',
-  },
-  {
-    index: '02',
-    title: 'Listar notas',
-    description: 'Cards organizados pela data de criação, com a nota mais recente aparecendo primeiro.',
-  },
-  {
-    index: '03',
-    title: 'Editar nota',
-    description: 'Edição inline para ajustar título e conteúdo sem sair da tela principal.',
-  },
-  {
-    index: '04',
-    title: 'Excluir nota',
-    description: 'Confirmação antes da exclusão permanente para evitar perda acidental.',
-  },
-] as const
-
-const setupChecklist = [
-  'Execute o SQL de setup no Supabase para criar a tabela notes e as policies.',
-  'Entre com email e senha para isolar as notas por usuário.',
-  'Use a mesma lógica do todo-app: cliente web, rotas API e validação no servidor.',
-] as const
 
 function formatLatestDate(value: string | null) {
   if (!value) {
@@ -267,45 +237,13 @@ export default function Home() {
     <main className="page-shell">
       {!session ? (
         <section className="hero-layout">
-          <section className="hero hero-primary">
-            <p className="eyebrow">Projeto espelhado do todo-app</p>
-            <h1>Sistema de notas de aula com CRUD completo.</h1>
+          <section className="hero hero-primary" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', paddingBottom: '3rem' }}>
+            <p className="eyebrow">Plataforma Inteligente</p>
+            <h1>Suas notas de aula centralizadas e seguras.</h1>
             <p className="hero-lead">
-              A estrutura reaproveita a arquitetura do projeto original: autenticação com
-              Supabase, rotas de API protegidas e interface principal para criar, listar, editar
-              e excluir notas.
+              Acesse seu acervo pessoal de notas a qualquer momento. Autenticação rápida, 
+              armazenamento em nuvem com Supabase e edição em tempo real de onde estiver.
             </p>
-
-            <div className="info-board">
-              <article className="schema-card">
-                <p className="schema-label">Estrutura da tabela</p>
-                <div className="schema-shell">
-                  <strong>notes</strong>
-                  <ul className="schema-list">
-                    {tableFields.map((field) => (
-                      <li key={field}>{field}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="schema-copy">
-                  No SQL do projeto, `user_id` também foi incluído para manter o isolamento por
-                  usuário do todo-app.
-                </p>
-              </article>
-
-              <section className="requirements-panel">
-                <p className="requirements-kicker">Funcionalidades a implementar</p>
-                <div className="requirements-grid">
-                  {requestedFeatures.map((feature) => (
-                    <article className="requirement-card" key={feature.index}>
-                      <span>{feature.index}</span>
-                      <h2>{feature.title}</h2>
-                      <p>{feature.description}</p>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            </div>
           </section>
 
           <div className="hero-sidebar">
@@ -315,24 +253,6 @@ export default function Home() {
                 await refreshNotes()
               }}
             />
-
-            <section className="panel panel-muted">
-              <div className="panel-header panel-header-compact">
-                <div>
-                  <p className="eyebrow">Como usar</p>
-                  <h2>Fluxo montado para seguir o enunciado do print</h2>
-                </div>
-              </div>
-
-              <ol className="step-list">
-                {setupChecklist.map((step, index) => (
-                  <li className="step-item" key={step}>
-                    <span className="step-index">{index + 1}</span>
-                    <p>{step}</p>
-                  </li>
-                ))}
-              </ol>
-            </section>
           </div>
         </section>
       ) : (
