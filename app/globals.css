@@ -262,6 +262,7 @@ textarea::placeholder {
 .requirements-panel,
 .panel {
   padding: 24px;
+  margin-bottom: 24px;
 }
 
 .panel-muted {
