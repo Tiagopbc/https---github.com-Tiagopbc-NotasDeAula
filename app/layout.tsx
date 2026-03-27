@@ -4,7 +4,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Notas de Aula com Supabase',
-  description: 'Aplicacao de notas de aula com autenticacao e CRUD completo.',
+  description: 'Aplicação de notas de aula com autenticação e CRUD completo.',
 }
 
 export default function RootLayout({

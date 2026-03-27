@@ -15,7 +15,7 @@ async function getAccessToken() {
   } = await supabase.auth.getSession()
 
   if (!session) {
-    throw new Error('Sessao nao encontrada.')
+    throw new Error('Sessão não encontrada.')
   }
 
   return session.access_token
@@ -43,7 +43,7 @@ export async function getNotes(): Promise<Note[]> {
   const body: unknown = await response.json().catch(() => null)
 
   if (!response.ok) {
-    throw new Error(getErrorMessage(body, 'Nao foi possivel carregar as notas.'))
+    throw new Error(getErrorMessage(body, 'Não foi possível carregar as notas.'))
   }
 
   return Array.isArray(body) ? (body as Note[]) : []
@@ -57,7 +57,7 @@ export async function createNote(title: string, content: string) {
   const body: unknown = await response.json().catch(() => null)
 
   if (!response.ok) {
-    throw new Error(getErrorMessage(body, 'Nao foi possivel salvar a nota.'))
+    throw new Error(getErrorMessage(body, 'Não foi possível salvar a nota.'))
   }
 }
 
@@ -69,7 +69,7 @@ export async function updateNote(noteId: number, title: string, content: string)
   const body: unknown = await response.json().catch(() => null)
 
   if (!response.ok) {
-    throw new Error(getErrorMessage(body, 'Nao foi possivel atualizar a nota.'))
+    throw new Error(getErrorMessage(body, 'Não foi possível atualizar a nota.'))
   }
 }
 
@@ -80,6 +80,6 @@ export async function deleteNote(noteId: number) {
   const body: unknown = await response.json().catch(() => null)
 
   if (!response.ok) {
-    throw new Error(getErrorMessage(body, 'Nao foi possivel excluir a nota.'))
+    throw new Error(getErrorMessage(body, 'Não foi possível excluir a nota.'))
   }
 }

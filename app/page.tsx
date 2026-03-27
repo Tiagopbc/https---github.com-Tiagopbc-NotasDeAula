@@ -15,29 +15,29 @@ const requestedFeatures = [
   {
     index: '01',
     title: 'Criar nota',
-    description: 'Formulario com titulo e conteudo para registrar rapidamente o resumo da aula.',
+    description: 'Formulário com título e conteúdo para registrar rapidamente o resumo da aula.',
   },
   {
     index: '02',
     title: 'Listar notas',
-    description: 'Cards organizados pela data de criacao, com a nota mais recente aparecendo primeiro.',
+    description: 'Cards organizados pela data de criação, com a nota mais recente aparecendo primeiro.',
   },
   {
     index: '03',
     title: 'Editar nota',
-    description: 'Edicao inline para ajustar titulo e conteudo sem sair da tela principal.',
+    description: 'Edição inline para ajustar título e conteúdo sem sair da tela principal.',
   },
   {
     index: '04',
     title: 'Excluir nota',
-    description: 'Confirmacao antes da exclusao permanente para evitar perda acidental.',
+    description: 'Confirmação antes da exclusão permanente para evitar perda acidental.',
   },
 ] as const
 
 const setupChecklist = [
   'Execute o SQL de setup no Supabase para criar a tabela notes e as policies.',
-  'Entre com email e senha para isolar as notas por usuario.',
-  'Use a mesma logica do todo-app: cliente web, rotas API e validacao no servidor.',
+  'Entre com email e senha para isolar as notas por usuário.',
+  'Use a mesma lógica do todo-app: cliente web, rotas API e validação no servidor.',
 ] as const
 
 function formatLatestDate(value: string | null) {
@@ -48,7 +48,7 @@ function formatLatestDate(value: string | null) {
   const date = new Date(value)
 
   if (Number.isNaN(date.getTime())) {
-    return 'Data indisponivel'
+    return 'Data indisponível'
   }
 
   return new Intl.DateTimeFormat('pt-BR', {
@@ -195,7 +195,7 @@ export default function Home() {
     const nextContent = editContent.trim()
 
     if (!nextTitle || !nextContent) {
-      setError('Titulo e conteudo sao obrigatorios para editar a nota.')
+      setError('Título e conteúdo são obrigatórios para editar a nota.')
       return
     }
 
@@ -255,7 +255,7 @@ export default function Home() {
           <p className="eyebrow">Preparando o caderno</p>
           <h1>Carregando suas notas...</h1>
           <p className="hero-lead">
-            Estamos verificando sua sessao e alinhando o ambiente com a mesma estrutura do
+            Estamos verificando sua sessão e alinhando o ambiente com a mesma estrutura do
             todo-app.
           </p>
         </section>
@@ -271,7 +271,7 @@ export default function Home() {
             <p className="eyebrow">Projeto espelhado do todo-app</p>
             <h1>Sistema de notas de aula com CRUD completo.</h1>
             <p className="hero-lead">
-              A estrutura reaproveita a arquitetura do projeto original: autenticacao com
+              A estrutura reaproveita a arquitetura do projeto original: autenticação com
               Supabase, rotas de API protegidas e interface principal para criar, listar, editar
               e excluir notas.
             </p>
@@ -288,8 +288,8 @@ export default function Home() {
                   </ul>
                 </div>
                 <p className="schema-copy">
-                  No SQL do projeto, `user_id` tambem foi incluido para manter o isolamento por
-                  usuario do todo-app.
+                  No SQL do projeto, `user_id` também foi incluído para manter o isolamento por
+                  usuário do todo-app.
                 </p>
               </article>
 
@@ -339,17 +339,17 @@ export default function Home() {
         <>
           <section className="hero hero-compact">
             <p className="eyebrow">Painel de notas</p>
-            <h1>Registre, revise e ajuste suas anotacoes sem sair da mesma tela.</h1>
+            <h1>Registre, revise e ajuste suas anotações sem sair da mesma tela.</h1>
             <p className="hero-lead">
-              Cada nota fica vinculada ao usuario autenticado e a lista aparece ordenada por data,
-              com edicao inline e confirmacao antes de excluir.
+              Cada nota fica vinculada ao usuário autenticado e a lista aparece ordenada por data,
+              com edição inline e confirmação antes de excluir.
             </p>
           </section>
 
           <section className="panel">
             <div className="panel-header">
               <div>
-                <p className="eyebrow">Sessao ativa</p>
+                <p className="eyebrow">Sessão ativa</p>
                 <h2>{session.user.email}</h2>
               </div>
 
@@ -364,7 +364,7 @@ export default function Home() {
                 <strong>{notes.length}</strong>
               </div>
               <div>
-                <span>Ultima criacao</span>
+                <span>Última criação</span>
                 <strong>{formatLatestDate(notes[0]?.created_at ?? null)}</strong>
               </div>
             </div>
@@ -374,7 +374,7 @@ export default function Home() {
             <div className="panel-header panel-header-compact">
               <div>
                 <p className="eyebrow">Nova nota</p>
-                <h2>Adicione titulo e conteudo da aula</h2>
+                <h2>Adicione título e conteúdo da aula</h2>
               </div>
             </div>
 
@@ -386,7 +386,7 @@ export default function Home() {
               }}
             >
               <label className="field">
-                <span>Titulo</span>
+                <span>Título</span>
                 <input
                   onChange={(event) => setTitle(event.target.value)}
                   placeholder="Ex.: Resumo de banco de dados"
@@ -395,7 +395,7 @@ export default function Home() {
               </label>
 
               <label className="field">
-                <span>Conteudo</span>
+                <span>Conteúdo</span>
                 <textarea
                   onChange={(event) => setContent(event.target.value)}
                   placeholder="Escreva os principais pontos vistos em aula..."

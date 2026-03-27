@@ -44,11 +44,11 @@ export async function POST(request: Request) {
       : ''
 
   if (!title) {
-    return NextResponse.json({ error: 'O titulo da nota e obrigatorio.' }, { status: 400 })
+    return NextResponse.json({ error: 'O título da nota é obrigatório.' }, { status: 400 })
   }
 
   if (!content) {
-    return NextResponse.json({ error: 'O conteudo da nota e obrigatorio.' }, { status: 400 })
+    return NextResponse.json({ error: 'O conteúdo da nota é obrigatório.' }, { status: 400 })
   }
 
   const { data, error } = await auth.supabase

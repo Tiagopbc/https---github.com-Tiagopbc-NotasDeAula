@@ -18,7 +18,7 @@ function formatCreatedAt(value: string) {
   const date = new Date(value)
 
   if (Number.isNaN(date.getTime())) {
-    return 'Data indisponivel'
+    return 'Data indisponível'
   }
 
   return new Intl.DateTimeFormat('pt-BR', {
@@ -43,7 +43,7 @@ export default function NoteList({
   if (notes.length === 0) {
     return (
       <p className="empty-state">
-        Nenhuma nota cadastrada ainda. Crie a primeira para registrar o conteudo da aula.
+        Nenhuma nota cadastrada ainda. Crie a primeira para registrar o conteúdo da aula.
       </p>
     )
   }
@@ -64,7 +64,7 @@ export default function NoteList({
                 }}
               >
                 <label className="field">
-                  <span>Titulo</span>
+                  <span>Título</span>
                   <input
                     disabled={isMutating}
                     onChange={(event) => onEditTitleChange(event.target.value)}
@@ -73,7 +73,7 @@ export default function NoteList({
                 </label>
 
                 <label className="field">
-                  <span>Conteudo</span>
+                  <span>Conteúdo</span>
                   <textarea
                     disabled={isMutating}
                     onChange={(event) => onEditContentChange(event.target.value)}
@@ -84,7 +84,7 @@ export default function NoteList({
 
                 <div className="note-actions">
                   <button className="primary-button" disabled={isMutating} type="submit">
-                    {isMutating ? 'Salvando...' : 'Salvar alteracoes'}
+                    {isMutating ? 'Salvando...' : 'Salvar alterações'}
                   </button>
                   <button
                     className="ghost-button"

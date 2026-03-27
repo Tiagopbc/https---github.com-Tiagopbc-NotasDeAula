@@ -45,7 +45,7 @@ export default function AuthPanel({ onAuthenticated }: AuthPanelProps) {
         }
 
         setMessage(
-          'Conta criada. Se a confirmacao por email estiver ativa, valide seu email antes de entrar.'
+          'Conta criada. Se a confirmação por email estiver ativa, valide seu email antes de entrar.'
         )
         return
       }
@@ -71,12 +71,12 @@ export default function AuthPanel({ onAuthenticated }: AuthPanelProps) {
     <section className="panel panel-auth">
       <div className="panel-header panel-header-compact">
         <div>
-          <p className="eyebrow">Autenticacao</p>
+          <p className="eyebrow">Autenticação</p>
           <h2>{mode === 'login' ? 'Entrar na sua conta' : 'Criar uma conta'}</h2>
         </div>
       </div>
 
-      <div className="mode-toggle" aria-label="Modo de autenticacao">
+      <div className="mode-toggle" aria-label="Modo de autenticação">
         <button
           className={mode === 'login' ? 'mode-button mode-button-active' : 'mode-button'}
           onClick={() => {
@@ -104,7 +104,7 @@ export default function AuthPanel({ onAuthenticated }: AuthPanelProps) {
       <p className="panel-copy">
         {mode === 'login'
           ? 'Entre para acessar suas notas de aula privadas.'
-          : 'Crie sua conta para salvar notas e revisar o conteudo quando quiser.'}
+          : 'Crie sua conta para salvar notas e revisar o conteúdo quando quiser.'}
       </p>
 
       <form className="stack-md" onSubmit={handleSubmit}>
@@ -126,7 +126,7 @@ export default function AuthPanel({ onAuthenticated }: AuthPanelProps) {
             autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
             minLength={6}
             onChange={(event) => setPassword(event.target.value)}
-            placeholder="Minimo de 6 caracteres"
+            placeholder="Mínimo de 6 caracteres"
             required
             type="password"
             value={password}
@@ -141,7 +141,7 @@ export default function AuthPanel({ onAuthenticated }: AuthPanelProps) {
         </button>
 
         <p className="panel-note">
-          Cada usuario enxerga somente as proprias notas, seguindo o mesmo isolamento do todo-app.
+          Cada usuário enxerga somente as próprias notas, seguindo o mesmo isolamento do todo-app.
         </p>
       </form>
     </section>
