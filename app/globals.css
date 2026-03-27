@@ -551,6 +551,8 @@ button:disabled {
   line-height: 1.15;
   color: #fff;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .note-date {
